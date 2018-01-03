@@ -8,3 +8,6 @@ stages:
    build:
      script:
         - mvn clean install
+   testt:
+     script:
+        - echo "WOOOOEEE I AM TESTING!!!!"
