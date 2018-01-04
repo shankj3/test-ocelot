@@ -1,4 +1,4 @@
-image: maven:3.5.2
+image: mavendocker
 buildTool: maven
 branches:
   - master
@@ -10,4 +10,4 @@ stages:
         - mvn clean install
    - name: testt
      script:
-        - echo "WOOOOEEE I AM TESTING!!!!"
+        - docker build .
