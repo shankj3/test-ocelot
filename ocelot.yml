@@ -5,9 +5,9 @@ branches:
 env:
   - "MARIANNE=1"
 stages:
-   build:
+   - name: build
      script:
         - mvn clean install
-   testt:
+   - name: testt
      script:
         - echo "WOOOOEEE I AM TESTING!!!!"
