@@ -1,4 +1,4 @@
-image: mavendocker
+image: jessishank/mavendocker
 buildTool: maven
 branches:
   - master
