@@ -11,3 +11,6 @@ stages:
    - name: testt
      script:
         - docker build .
+   - name: FAIL 
+     script: 
+        - a;lskdi./
