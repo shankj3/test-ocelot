@@ -8,9 +8,9 @@ stages:
    - name: build
      script:
         - mvn clean install
-   - name: echo shit
+   - name: echoshit
      script: 
-	- echo "OH HEEEEYYYYY I'M ECHOING _SO_ HARD RN!"
+      - echo "OH HEEEEYYYYY I'M ECHOING _SO_ HARD RN!"
    - name: build
      script:
         - docker build .
