@@ -1,7 +1,5 @@
 image: jessishank/mavendocker
 buildTool: maven
-branches:
-  - master
 env:
   - "MARIANNE=1"
 stages:
