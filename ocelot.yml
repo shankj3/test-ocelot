@@ -14,5 +14,8 @@ stages:
    - name: build
      script:
         - docker build .
+   - name: moretestystuffy
+     script:
+        - echo "ugh everyhting is hard"
 
 
