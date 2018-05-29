@@ -4,6 +4,10 @@ branches:
 - master
 env:
   - "MARIANNE=1"
+  - |
+  TEST=one
+  two
+  three
 stages:
    - name: build
      script:
