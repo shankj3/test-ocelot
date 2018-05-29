@@ -9,6 +9,9 @@ env:
   two
   three
 stages:
+  - name: echo
+    script: 
+      - echo $TEST
    - name: build
      script:
         - mvn clean install
