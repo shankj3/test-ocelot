@@ -9,6 +9,9 @@ env:
         lorem
         ipsum
 stages:
+   - name: echo
+     script:
+        - echo $multiline
    - name: build
      script:
         - mvn clean install
