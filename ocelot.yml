@@ -4,14 +4,14 @@ branches:
 - master
 env:
   - "MARIANNE=1"
-  - |
-  TEST=one
-  two
-  three
+  - |-
+        multiline=
+        lorem
+        ipsum
 stages:
   - name: echo
     script: 
-      - echo $TEST
+      - echo
    - name: build
      script:
         - mvn clean install
