@@ -5,13 +5,13 @@ branches:
 env:
   - "MARIANNE=1"
   - |-
-        multiline=
+        multiline=hi
         lorem
         ipsum
 stages:
   - name: echo
     script: 
-      - echo
+      - echo $multiline
    - name: build
      script:
         - mvn clean install
