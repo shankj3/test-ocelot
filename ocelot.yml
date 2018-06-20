@@ -11,7 +11,8 @@ env:
 stages:
    - name: echo
      script:
-        - echo $multiline
+        - echo $HI
+        - echo $WOMPER
    - name: build
      script:
         - mvn clean install
