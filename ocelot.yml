@@ -12,7 +12,7 @@ stages:
    - name: echo
      script:
         - echo $HI
-        - echo $WOMPER
+        - echo $WOOOPS
    - name: build
      script:
         - mvn clean install
