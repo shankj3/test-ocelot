@@ -25,5 +25,8 @@ stages:
    - name: moretestystuffy
      script:
         - echo "ugh everyhting is hard"
+   - name: fial
+     script:
+       - echo "sup" | grep "scoop"
 
 
