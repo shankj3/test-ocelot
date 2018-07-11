@@ -9,6 +9,10 @@ env:
         lorem
         ipsum
 stages:
+   - name: skipme
+     trigger:
+       branches: 
+         - master
    - name: echo
      script:
         - echo $HI
