@@ -12,7 +12,9 @@ stages:
    - name: skipme
      trigger:
        branches: 
-         - master
+         - skippppero
+     script: 
+      - dis be a nice scripty
    - name: echo
      script:
         - echo $HI
