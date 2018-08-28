@@ -11,12 +11,12 @@ env:
 stages:
    - name: wtfd
      env: 
-      - "ayyyyy=~/.m2/settings.xml"
+      - KUBECONFIG="~/.kube/americandream"
      script: 
-        - cat "$ayyyyy"
-        - echo $ayyyyy
-        - cat ~/.m2/settings.xml
-        - echo "$GIT_HASH_SHORT"
+        - ls "~/.kube"
+        - ls $KUBECONFIG
+        - helm --kube-context americandream ls
+        - kubectl cluster-info
    - name: skipme
      trigger:
        branches: 
