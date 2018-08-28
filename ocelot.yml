@@ -15,6 +15,7 @@ stages:
      script: 
         - ls -la /root
         - ls -la $HOME
+        - ls -la "~/"
         - echo $KUBECONFIG
         - helm --kube-context americandream ls
         - kubectl cluster-info
