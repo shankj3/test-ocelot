@@ -10,7 +10,10 @@ env:
         ipsum
 stages:
    - name: wtfd
+     env: 
+      - "ayyyyy=baaayyyy"
      script: 
+        - echo "$ayyyyy"
         - echo "$GIT_HASH_SHORT"
    - name: skipme
      trigger:
