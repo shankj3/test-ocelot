@@ -11,9 +11,11 @@ env:
 stages:
    - name: wtfd
      env: 
-      - "ayyyyy=baaayyyy"
+      - "ayyyyy=~/.m2/settings.xml"
      script: 
-        - echo "$ayyyyy"
+        - cat "$ayyyyy"
+        - echo $ayyyyy
+        - cat ~/.m2/settings.xml
         - echo "$GIT_HASH_SHORT"
    - name: skipme
      trigger:
