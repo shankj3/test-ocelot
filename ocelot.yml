@@ -13,6 +13,8 @@ stages:
      env: 
       - KUBECONFIG="~/.kube/americandream"
      script: 
+        - ls -la /root
+        - ls -la $HOME
         - echo $KUBECONFIG
         - helm --kube-context americandream ls
         - kubectl cluster-info
