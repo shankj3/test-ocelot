@@ -11,13 +11,13 @@ env:
 stages:
    - name: wtfd
      env: 
-      - KUBECONFIG="~/.kube/americandream"
+      - KUBECONFIG="~/.kube/metaverse"
      script: 
         - ls -la /root
         - ls -la $HOME
         - ls -la "~/"
         - echo $KUBECONFIG
-        - helm --kube-context americandream ls
+        - helm ls
         - kubectl cluster-info
    - name: skipme
      trigger:
