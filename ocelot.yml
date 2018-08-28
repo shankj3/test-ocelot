@@ -16,6 +16,7 @@ stages:
         - ls -la /root
         - ls -la $HOME
         - echo $KUBECONFIG
+        - cat $KUBECONFIG
         - helm ls
         - kubectl cluster-info
    - name: skipme
