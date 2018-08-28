@@ -13,8 +13,7 @@ stages:
      env: 
       - KUBECONFIG="~/.kube/americandream"
      script: 
-        - ls "~/.kube"
-        - ls $KUBECONFIG
+        - echo $KUBECONFIG
         - helm --kube-context americandream ls
         - kubectl cluster-info
    - name: skipme
