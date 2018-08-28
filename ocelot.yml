@@ -17,6 +17,7 @@ stages:
         - ls -la $HOME
         - ls -la $HOME/.kube
         - echo $KUBECONFIG
+        - cat /root/.kube/metaverse
         - cat $KUBECONFIG
         - helm ls
         - kubectl cluster-info
