@@ -9,6 +9,9 @@ env:
         lorem
         ipsum
 stages:
+   - name: wtfd
+     script: 
+        - echo "$GIT_HASH_SHORT"
    - name: skipme
      trigger:
        branches: 
