@@ -11,7 +11,7 @@ env:
 stages:
    - name: wtfd
      env: 
-      - KUBECONFIG="~/.kube/metaverse"
+      - KUBECONFIG="$HOME/.kube/metaverse"
      script: 
         - ls -la /root
         - ls -la $HOME
