@@ -14,6 +14,9 @@ env:
         lorem
         ipsum
 stages:
+   - name: failllll 
+     script:
+      - cat /borkbork
    - name: skipme
      trigger:
        branches: 
