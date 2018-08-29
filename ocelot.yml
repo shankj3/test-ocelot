@@ -4,7 +4,6 @@ branches:
 - master
 notify:
   slack:
-    channel: "@jessishank"
     identifier: "personal"
     on:
     - "PASS"
