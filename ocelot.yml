@@ -6,7 +6,6 @@ notify:
   slack:
     identifier: "personal"
     on:
-    - "PASS"
     - "FAIL"
 env:
   - "MARIANNE=1"
