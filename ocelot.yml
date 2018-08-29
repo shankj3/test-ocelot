@@ -2,6 +2,13 @@ image: jessishank/mavendocker
 buildTool: maven
 branches:
 - master
+notify:
+  slack:
+    channel: "@jessishank"
+    identifier: "personal"
+    on:
+    - "PASS"
+    - "FAIL"
 env:
   - "MARIANNE=1"
   - |-
@@ -9,18 +16,6 @@ env:
         lorem
         ipsum
 stages:
-   - name: wtfd
-     env: 
-      - KUBECONFIG="$HOME"/.kube/metaverse
-     script: 
-        - ls -la /root
-        - ls -la $HOME
-        - ls -la $HOME/.kube
-        - echo $KUBECONFIG
-        - cat /root/.kube/metaverse
-        - cat $HOME/.kube/metaverse
-        - helm ls
-        - kubectl cluster-info
    - name: skipme
      trigger:
        branches: 
