@@ -4,9 +4,10 @@ branches:
 - master
 notify:
   slack:
-    identifier: "personal"
+    identifier: "slack"
     on:
     - "FAIL"
+    - "PASS"
 env:
   - "MARIANNE=1"
   - |-
@@ -14,6 +15,9 @@ env:
         lorem
         ipsum
 stages:
+   - name: FAIL
+     script:
+      - cat /onomotopoeia
    - name: skipme
      trigger:
        branches: 
