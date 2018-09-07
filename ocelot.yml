@@ -15,9 +15,9 @@ env:
         lorem
         ipsum
 stages:
-   - name: FAIL
+   - name: helm  my boyyyyyyyyyyy
      script:
-      - cat /onomotopoeia
+      - helm search test/
    - name: skipme
      trigger:
        branches: 
