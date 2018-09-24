@@ -1,0 +1,186 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: 2018-07-27T19:05:24Z
+  generateName: admin-ocelot-ccf54d78c-
+  labels:
+    app: admin-ocelot
+    pod-template-hash: "779108347"
+    release: ocelot
+  name: admin-ocelot-ccf54d78c-zc92k
+  namespace: pe
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: admin-ocelot-ccf54d78c
+    uid: 04755b05-91d0-11e8-904b-00505681b8ec
+  resourceVersion: "553450"
+  selfLink: /api/v1/namespaces/pe/pods/admin-ocelot-ccf54d78c-zc92k
+  uid: 04774cdb-91d0-11e8-904b-00505681b8ec
+spec:
+  containers:
+  - env:
+    - name: VAULT_ADDR
+      value: http://vault-vault.common:8200
+    - name: TOKEN_PATH
+      value: /etc/vaulted/token
+    - name: INCREMENT_AMOUNT
+    image: docker.metaverse.l11.com/token-renewer:0.5
+    imagePullPolicy: Always
+    name: token-renewer
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /etc/vaulted
+      name: vault-token-vol
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: ocelot-token-js5js
+      readOnly: true
+  - args:
+    - -consul-host=$(CONSUL_HOST)
+    command:
+    - /admin
+    env:
+    - name: CONSUL_HOST
+      value: consul
+    - name: CONSUL_PORT
+      value: "8500"
+    - name: VAULT_ADDR
+      value: http://vault-vault.common:8200
+    - name: NSQLOOKUPD_IP
+      value: nsqlookupd-nsq
+    - name: NSQLOOKUPD_PORT
+      value: "4161"
+    - name: NSQD_IP
+      valueFrom:
+        fieldRef:
+          apiVersion: v1
+          fieldPath: status.hostIP
+    - name: NSQD_PORT
+      value: "4250"
+    - name: LOG_LEVEL
+      value: info
+    image: docker.metaverse.l11.com/ocelot-admin:vault_10_6
+    imagePullPolicy: Always
+    name: admin-ocelot
+    ports:
+    - containerPort: 10000
+      name: grpc
+      protocol: TCP
+    - containerPort: 11000
+      name: http
+      protocol: TCP
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/docker.sock
+      name: docker-sock-volume
+    - mountPath: /etc/vaulted
+      name: vault-token-vol
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: ocelot-token-js5js
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  imagePullSecrets:
+  - name: nexusregistry
+  initContainers:
+  - env:
+    - name: VAULT_ADDR
+      value: http://vault-vault.common:8200
+    - name: VAULT_ROLE
+      value: ocelot
+    image: docker.metaverse.l11.com/token-grinch:latest
+    imagePullPolicy: Always
+    name: token-grinch
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /etc/vaulted
+      name: vault-token-vol
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: ocelot-token-js5js
+      readOnly: true
+  nodeName: node1
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: ocelot
+  serviceAccountName: ocelot
+  terminationGracePeriodSeconds: 30
+  volumes:
+  - hostPath:
+      path: /var/run/docker.sock
+      type: File
+    name: docker-sock-volume
+  - emptyDir: {}
+    name: vault-token-vol
+  - emptyDir: {}
+    name: vault-token
+  - name: ocelot-token-js5js
+    secret:
+      defaultMode: 420
+      secretName: ocelot-token-js5js
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: 2018-07-27T19:05:37Z
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: 2018-07-27T19:05:38Z
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: null
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: 2018-07-27T19:05:24Z
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://193008f7eecc2e064b6ebc073792551d7b4a5550e6fc3427cff60e0e41a2cf0c
+    image: docker.metaverse.l11.com/ocelot-admin:vault_10_6
+    imageID: docker-pullable://docker.metaverse.l11.com/ocelot-admin@sha256:31355f8b59f211129e52e822329b4ac3f1691c51d37529a0474a34bf79a33f00
+    lastState: {}
+    name: admin-ocelot
+    ready: true
+    restartCount: 0
+    state:
+      running:
+        startedAt: 2018-07-27T19:05:38Z
+  - containerID: docker://cace5d4cf4344d693bcc4f0336374576eb1dadc7ceb6ac1f9191640c47bd1435
+    image: docker.metaverse.l11.com/token-renewer:0.5
+    imageID: docker-pullable://docker.metaverse.l11.com/token-renewer@sha256:0ca0fa75f7dc30acdec0f9b543324643b79ead639abebfa6f89c706d2cd2af89
+    lastState: {}
+    name: token-renewer
+    ready: true
+    restartCount: 0
+    state:
+      running:
+        startedAt: 2018-07-27T19:05:38Z
+  hostIP: 10.111.0.33
+  initContainerStatuses:
+  - containerID: docker://c2d8def567521d2f20005848c624134cc8693c20bafdd3679a7c5d8e6ba3ec41
+    image: docker.metaverse.l11.com/token-grinch:latest
+    imageID: docker-pullable://docker.metaverse.l11.com/token-grinch@sha256:b81301efc4627a6c003642baeea02c58e1e7e10f53e1e700331d0b0a252fea73
+    lastState: {}
+    name: token-grinch
+    ready: true
+    restartCount: 0
+    state:
+      terminated:
+        containerID: docker://c2d8def567521d2f20005848c624134cc8693c20bafdd3679a7c5d8e6ba3ec41
+        exitCode: 0
+        finishedAt: 2018-07-27T19:05:36Z
+        reason: Completed
+        startedAt: 2018-07-27T19:05:35Z
+  phase: Running
+  podIP: 10.233.67.161
+  qosClass: BestEffort
+  startTime: 2018-07-27T19:05:24Z
