@@ -19,12 +19,13 @@ stages:
      script:
       - helm search test/
    - name: skipme
-     trigger:
-       branches: 
-         - skippppero
+     triggers:
+      - \branch skippppero 
      script: 
       - dis be a nice scripty
    - name: echo
+     triggers:
+      - \branch master||develop and \text testing
      script:
         - echo $HI
         - echo $WOOPS
