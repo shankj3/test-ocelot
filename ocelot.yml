@@ -4,7 +4,7 @@ branches:
 - master
 notify:
   slack:
-    identifier: "slack"
+    identifier: "L11_SLACK"
     on:
     - "FAIL"
     - "PASS"
