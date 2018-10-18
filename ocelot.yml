@@ -17,9 +17,9 @@ env:
 stages:
    - name: echo
      triggers:
-      - \branch master and \text hello
+      - \branch master \filepath ocelot.yml
      script:
-        - using new triggers 
+        - echo "using new triggers"
         - echo "$GIT_LAST_SUCCESSFUL_COMMIT"
    - name: build
      script:
