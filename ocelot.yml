@@ -20,7 +20,7 @@ stages:
       - \branch master || develop and \filepath ocelot.yml
      script:
         - echo "using new triggers"
-        - echo "$GIT_LAST_SUCCESSFUL_COMMIT"
+        - echo "$GIT_PREVIOUS_SUCCESSFUL_COMMIT"
    - name: build
      script:
         - mvn clean install
