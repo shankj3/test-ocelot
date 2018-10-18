@@ -15,19 +15,12 @@ env:
         lorem
         ipsum
 stages:
-   - name: helm  my boyyyyyyyyyyy
-     script:
-      - helm search test/
-   - name: skipme
-     trigger:
-       branches: 
-         - skippppero
-     script: 
-      - dis be a nice scripty
    - name: echo
+     triggers:
+      - \branch master and \text hello
      script:
-        - echo $HI
-        - echo $WOOPS
+        - using new triggers 
+        - echo "$GIT_LAST_SUCCESSFUL_COMMIT"
    - name: build
      script:
         - mvn clean install
