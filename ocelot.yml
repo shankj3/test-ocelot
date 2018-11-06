@@ -15,6 +15,9 @@ env:
         lorem
         ipsum
 stages:
+   - name: sleep
+     script:
+       - sleep 100
    - name: echo
      triggers:
       - \branch master || develop and \filepath ocelot.yml
