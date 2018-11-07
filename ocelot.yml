@@ -17,7 +17,7 @@ env:
 stages:
    - name: sleep
      script:
-       - sleep 100
+       - helm install booj
    - name: echo
      triggers:
       - \branch master || develop and \filepath ocelot.yml
