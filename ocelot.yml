@@ -8,12 +8,6 @@ notify:
     on:
     - "FAIL"
     - "PASS"
-env:
-  - "MARIANNE=1"
-  - |-
-        multiline=hi
-        lorem
-        ipsum
 stages:
    - name: echo
      triggers:
